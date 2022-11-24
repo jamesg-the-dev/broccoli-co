@@ -1,0 +1,16 @@
+.footer__container {
+  max-width: 1200px;
+  margin-inline: auto;
+  color: #FFFFFF;
+  font-size: 1rem;
+}
+
+.footer__icon {
+  width: 27px;
+}
+
+.footer__icons {
+  margin-top: .7rem;
+  display: flex;
+  gap: .7rem;
+}

@@ -1,38 +1,360 @@
-.App {
+header,
+footer {
+  padding: 1rem;
+  min-height: var(--nav-height);
+  position: fixed;
+}
+
+nav {
+  z-index: 100;
+  display: flex;
+  width: 100%;
+}
+
+header,
+.landing-banner {
+  background-color: var(--primary);
+}
+
+footer {
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+header {
+  top: 0;
+  display: flex;
+  width: 100%;
+  z-index: 100;
+}
+
+footer {
+  bottom: 0;
+}
+
+.logo img {
+  width: 3rem;
+  aspect-ratio: 1;
+}
+
+.logo {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #FFFFFF;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* button reset */
+button {
+  border: none;
+  display: block;
+}
+
+
+/*
+global resets taken from
+https://gist.github.com/nknauth/538757/1e4f6294a4a2456c3fa1f535a8e91a9ac884433b
+*/
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+address,
+big,
+cite,
+code,
+del,
+em,
+img,
+ins,
+q,
+s,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+dialog,
+figure,
+footer,
+header,
+nav,
+section {
+  margin: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1
+}
+
+ol,
+ul {
+  list-style: none
+}
+
+blockquote,
+q {
+  quotes: none
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none
+}
+
+:focus {
+  outline: 0
+}
+
+ins {
+  text-decoration: none
+}
+
+del {
+  text-decoration: line-through
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+html {
+  height: 100%;
+  margin-bottom: 1px;
+}
+
+body {
+  color: #222;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", "FreeSans", sans-serif;
+  font-size: 13px;
+}
+
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+dialog {
+  font-size: 1em;
+  /* 13px */
+  line-height: 1.3846em;
+  /* 18px */
+  margin: 0 0 1.3846em 0;
+}
+
+h1 {
+  font-size: 2.4615em;
+  /* 32px */
+  line-height: 1.125em;
+  /* 36px */
+  margin-top: 0.5625em;
+  margin-bottom: 0em;
+}
+
+h2 {
+  font-size: 1.5385em;
+  /* 20px */
+  font-weight: normal;
+  line-height: 1.8em;
+  /* 36px */
+  margin-top: 0.9em;
+  margin-bottom: 0em;
+}
+
+h3 {
+  font-size: 1.2308em;
+  /* 16px */
+  line-height: 1.125em;
+  /* 18px */
+  margin-top: 1.125em;
+  margin-bottom: 0em;
+}
+
+h4 {
+  font-size: 1.0769em;
+  /* 14px */
+  line-height: 1.2857em;
+  /* 18px */
+  margin-top: 1.2857em;
+  margin-bottom: 0em;
+}
+
+h5 {
+  font-size: 1em;
+  /* 13px */
+  line-height: 1.3846em;
+  /* 18px */
+  margin: 0;
+}
+
+h6 {
+  font-size: 1em;
+  /* 13px */
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 2px;
+  line-height: 1.3846em;
+  /* 18px */
+}
+
+blockquote {
+  border-left: 3px solid rgba(221, 221, 221, .5);
+  font-style: italic;
+  padding-left: 17px;
+}
+
+/* #DDD at .5 strength*/
+pre,
+code {
+  font-family: monaco, "Courier New", Courier, monospace;
+  font-size: 1em;
+}
+
+sup,
+sub {
+  font-size: 0.7em;
+  line-height: 1em;
+  vertical-align: baseline;
+}
+
+sup {
+  position: relative;
+  top: -0.4em;
+}
+
+sub {
+  position: relative;
+  top: 0.4em;
+}
+
+ol,
+ul,
+dd {
+  margin-left: 1.5em;
+}
+
+ul {
+  list-style: disc;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0
+}
+
+ol {
+  list-style: decimal;
+}
+
+dt {
+  font-weight: bold;
+}
+
+hr {
+  margin: 1.3846em 0 1.308em 0;
+  height: 0;
+  border: 1px solid #888;
+  border-width: 1px 0 0 0;
+}
+
+input {
+  font-family: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  font-size: 1rem;
+}
+
+.mt-3 {
+  margin-top: calc(1rem * .75);
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-flex--column {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.text--lg {
+  font-size: 1.7rem;
+}
+
+.text--md {
+  font-size: 1.3rem;
+}
+
+.text--center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.justify-center {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.align-center {
+  align-items: center;
 }

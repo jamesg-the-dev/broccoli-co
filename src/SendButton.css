@@ -1,0 +1,55 @@
+.send-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  gap: 12px;
+}
+
+@media (max-width: 370px) {
+  .send-button {
+    width: 100%;
+  }
+}
+
+.text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  white-space: nowrap;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.icon {
+  width: 30px;
+  right: 100%;
+  position: absolute;
+}
+
+.send-button.send-button--state-2 .icon {
+  animation: sent .8s both ease-in;
+}
+
+.send-button.send-button--state-2 .text {
+  animation: sent-text .8s .8s both;
+}
+
+@keyframes sent {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(280px);
+  }
+}
+
+@keyframes sent-text {
+  from {
+    transform: translate(-50%, -40px);
+  }
+  to {
+    transform: translate(-50%, 0);
+  }
+}
