@@ -12,6 +12,7 @@ interface Props {
   color: string;
   show: boolean;
   close: () => void;
+  disableClose?: boolean;
 }
 
 type Classes = {
@@ -29,7 +30,8 @@ const Modal = ({
   minWidth,
   color,
   close,
-  show
+  show,
+  disableClose
 }: Props) => {
   const styles = {
     width,
@@ -51,13 +53,19 @@ const Modal = ({
 
   //handle pressing escape key to close modal
   window.addEventListener('keydown', (e: KeyboardEvent) => {
-    if (e.key !== 'Escape') return
+    if (e.key !== 'Escape' || disableClose) return
     e.preventDefault()
     close()
   })
 
+  const handleClick = () => {
+    //disabled click to close modal if disableClose is true
+    if (disableClose) return
+    close()
+  }
+
   return (
-    <div className={cx(classes)} onClick={close}>
+    <div className={cx(classes)} onClick={handleClick}>
       <div className='modal-container' onClick={(e) => e.stopPropagation()} style={styles} data-testid='modal-container'>
         {children}
       </div>

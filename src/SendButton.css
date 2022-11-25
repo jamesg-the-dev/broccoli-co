@@ -6,6 +6,11 @@
   gap: 12px;
 }
 
+.send-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
 @media (max-width: 370px) {
   .send-button {
     width: 100%;

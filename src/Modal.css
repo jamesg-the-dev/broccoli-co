@@ -12,8 +12,10 @@
 }
 
 .modal-container__header {
-  font-size: 2.5rem;
   text-align: center;
+}
+.modal-container__header .heading {
+  font-size: 2.5rem;
   color: inherit;
   font-weight: 700;
 }
@@ -32,6 +34,10 @@
 
 .modal-container__content {
   height: 100%;
+}
+
+.modal-container__header p {
+  font-size: 1.2rem;
 }
 
 .modal-backdrop--show {

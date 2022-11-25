@@ -20,6 +20,7 @@ function LandingBanner() {
   const [buttonState, setButtonState] = useState<number>(0)
   const [mainError, setMainError] = useState<string>('')
   const [successful, setSuccessful] = useState<boolean>(false)
+  const [disableClose, setDisableClose] = useState<boolean>(false)
   const [inputs, setInputs] = useState<Inputs>({
     fullName: {
       value: '',
@@ -103,6 +104,7 @@ function LandingBanner() {
     if (!validationChecks()) return
 
     setButtonState(SendStates.Sending)
+    setDisableClose(true)
 
     axios.post(
       'https://us-central1-blinkapp-684c1.cloudfunctions.net/fakeAuth',
@@ -120,6 +122,7 @@ function LandingBanner() {
           setTimeout(() => {
             setButtonState(SendStates.Neutral)
             setSuccessful(true)
+            setDisableClose(false)
           }, 2000);
         }
       })
@@ -175,7 +178,7 @@ function LandingBanner() {
       </div>
 
     </div>
-    <SendButton disabled={buttonState === SendStates.Sending ? true : false} click={handleClick} state={buttonState} />
+    <SendButton disabled={buttonState === SendStates.Sending || buttonState === SendStates.Sent ? true : false} click={handleClick} state={buttonState} />
   </form>
 
   const success = <div className='d-flex d-flex--column h-100 justify-center'>
@@ -184,9 +187,12 @@ function LandingBanner() {
   </div>
 
   const modalHead = <>
-    <div className='modal-container__header'>Request an Invite</div>
-    <hr />
-    <p className={`error ${mainError ? 'error--show' : ''}`}>{mainError}</p>
+    <div className='modal-container__header'>
+      <div className='heading'>Request an Invite</div>
+      <hr />
+      <p>Please enter your name and email to receive the latest updates from our team.</p>
+      <p className={`error ${mainError ? 'error--show' : ''}`}>{mainError}</p>
+    </div>
   </>
 
   return (
@@ -202,6 +208,7 @@ function LandingBanner() {
           show={show}
           close={() => resetRequest()}
           maxHeight='600px'
+          disableClose={disableClose}
         >
           <>
             {successful ? '' : modalHead}
